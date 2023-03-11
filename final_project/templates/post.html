@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Post
+{% endblock %}
+
+{% block header%}
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">毎日日記</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/post">投稿</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{username}}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/mypage">マイページ</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/logout">ログアウト</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+</div>
+{% endblock %}
+
+{% block main %}
+<div class="container">
+
+    {% if error_message %}
+        <p class="text-danger">{{error_message}}</p>
+    {% endif %}
+
+    <form name="post" action="/post" method="post">
+        <div class="mb-3">
+            <label for="date" class="form-label">日付</label>
+            <input  type="date" class="form-control" id="date" name="date" 
+            {% if errors and errors["field"] == "date" %}
+            aria-describedby="date-error"
+            {% endif %}
+            >
+            {% if errors and errors["field"] == "date" %}
+            <div id="date-error" class="form-text">
+                {{ errors['message'] }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="studytime" class="form-label">本日の学習時間</label>
+            <input  type="number"  max="24" min="0" class="form-control" id="studytime" name="studytime"  step="0.1"
+            {% if errors and errors["field"] == "studytime" %}
+            aria-describedby="studytime-error"
+            {% endif %}
+            >
+            {% if errors and errors["field"] == "studytime" %}
+            <div id="studytime-error" class="form-text">
+                {{ errors['message'] }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="review" class="form-label">本日の振り返り</label>
+            <textarea class="form-control" id="review" rows="3" name="review" 
+            {% if errors and errors['field'] == 'review' %}
+                aria-describedby="reviewtime-error"
+            {% endif %}
+            ></textarea>
+            {% if errors and errors['field'] == 'review' %}
+                <div id="review-error" class="form-text">
+                    {{ errors['message'] }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="can" class="form-label">できるようになったこと</label>
+            <textarea class="form-control" id="can" rows="1" name="can" 
+            {% if errors and errors['field'] == 'can' %}
+                aria-describedby="can-error"
+            {% endif %}
+            ></textarea>
+            {% if errors and errors['field'] == 'can' %}
+                <div id="can-error" class="form-text">
+                    {{ errors['message'] }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="will" class="form-label">明日できるようにすること</label>
+            <textarea class="form-control" id="will" rows="1" name="will" 
+            {% if errors and errors['field'] == 'will' %}
+                aria-describedby="will-error"
+            {% endif %}
+            ></textarea>
+            {% if errors and errors['field'] == 'will' %}
+                <div id="will-error" class="form-text">
+                    {{ errors['message'] }}
+                </div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">投稿</button>
+    </form>
+</div>
+{% endblock %}

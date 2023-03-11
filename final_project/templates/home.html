@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block header %}
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">毎日日記</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/post">投稿</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{username}}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/mypage">マイページ</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/logout">ログアウト</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </nav>
+</div>
+<img src="images/diary.png" class="img-fluid d-block mx-auto" alt="logo" href="/">
+{% endblock %}
+
+{% block main %}
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">日時</th>
+        <th scope="col">学習時間</th>
+        <th scope="col">本日の振り返り</th>
+        <th scope="col">できるようになったこと</th>
+        <th scope="col">明日達成すること</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% if diaries %}
+      {% for diary in diaries %}
+      <tr>
+        <td>{{diary['date']}}</td>
+        <td>{{diary['studytime']}}</td>
+        <td>{{diary['review']}}</td>
+        <td>{{diary['can']}}</td>
+        <td>{{diary['will']}}</td>
+      </tr>
+      {% endfor %}
+    {% else %}
+      <tr>
+        <td colspan="5">日記がありません</td>
+      </tr>
+    {% endif %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

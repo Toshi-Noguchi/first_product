@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block script %}
+document.addEventListener('DOMContentLoaded', function(){
+  var username = document.getElementById("username");
+  var target = document.getElementById("target");
+  var trStudy = document.getElementById("trstudytime");
+  var button = document.getElementById("submitbutton");
+
+  function change(){
+    button.disabled = null;
+  }
+
+  username.addEventListener('change', change)
+  target.addEventListener('change', change)
+  trStudy.addEventListener('change', change)
+
+})
+{% endblock %}
+
+{% block title%}
+    Mypage
+{% endblock%}
+
+{% block header %}
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">毎日日記</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/post">投稿</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{username}}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/mypage">マイページ</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/logout">ログアウト</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+</div>
+{% endblock %}
+
+{% block main %}
+<div class="container">
+  <h1 my-3>マイぺージ</h1>
+  <form action="/mypage" method="post">
+    <div class="form-group">
+      <label for="target">ユーザーネーム</label>
+      <input type="text" class="form-control" id="username"  value="{{username}}" autofocus name="username"> 
+    </div>
+    <div class="form-group">
+      <label for="target">目標</label>
+      <textarea class="form-control" id="target" rows="3" autofocus name="target">
+      {% if target %}
+      {{target}}
+      {% endif %}
+      </textarea>
+    </div>
+    <div class="form-group">
+      <label for="trstudytime">目標の学習時間</label>
+      <input type="" class="form-control" id="trstudytime" name="trstudy" autofocus
+      {% if tar_study %}
+      value="{{tar_study}}"
+      {% else %}
+      value=""
+      {% endif %}
+      >
+    </div>
+    <p class="my-3">現在までの総学習時間</p>
+    <p class="my-3 sumstudy"> 
+      {% if sum_study %}
+      {{sum_study}}時間
+      {% else %}
+      まだ記録がありません
+      {% endif %}
+    </p>
+    <button type="submit" class="btn btn-primary" name="update" disabled id="submitbutton">更新</button>
+  </form>
+</div>
+{% endblock%}
