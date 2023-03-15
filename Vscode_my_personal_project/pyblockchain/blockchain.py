@@ -40,6 +40,8 @@ class BlockChain(object):
         #このように、updateを使わず、いきなりsha256に引数を与える方法は、ハッシュを計算する前に、一度に全てのデータを読み込む必要があるため、大きなデータセットに対しては適していない
         return hashlib.sha256(sorted_block.encode()).hexdigest()
     
+
+
     def add_transaction(self, sender_blockchain_address, recipient_blockchain_address, value, sender_public_key=None, signature=None):
         transaction = utils.sorted_dict_by_key({
             'sender_blockchain_address': sender_blockchain_address,
@@ -60,6 +62,14 @@ class BlockChain(object):
             return True
         else:
             return False 
+        
+    def create_transaction(self, sender_blockchain_address, recipient_blockchain_address, value, sender_public_key, signature):
+        is_transacted = self.add_transaction(sender_blockchain_address, recipient_blockchain_address, value, sender_public_key, signature)
+        
+        #TODO
+
+        return is_transacted
+
     
     def verify_transaction_signature(
             self, sender_public_key, signature, transaction):
