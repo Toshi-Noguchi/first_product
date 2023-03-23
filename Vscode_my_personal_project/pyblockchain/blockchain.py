@@ -1,19 +1,24 @@
-import hashlib 
+import contextlib
+import hashlib
 import json
-import logging 
+import logging
 import sys
 import time
+import threading
 
-from ecdsa import NIST256p, VerifyingKey
+from ecdsa import NIST256p
+from ecdsa import VerifyingKey
 
 import utils
 
 MINING_DIFFICULTY = 3
 MINING_SENDER = 'THE BLOCKCHAIN'
 MINING_REWARD = 1.0
+MINING_TIMER_SEC = 20
 
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 logger = logging.getLogger(__name__)
+
 
 class BlockChain(object):
 
@@ -23,6 +28,7 @@ class BlockChain(object):
         self.create_block(0, self.hash({}))
         self.blockchain_address = blockchain_address
         self.port = port
+        self.mining_semaphore = threading.Semaphore(1)
 
     def create_block(self, nonce, previous_hash):
         block = utils.sorted_dict_by_key({
@@ -34,15 +40,14 @@ class BlockChain(object):
         self.chain.append(block)
         self.transaction_pool = []
         return block
-    
+
     def hash(self, block):
         sorted_block = json.dumps(block, sort_keys=True)
-        #このように、updateを使わず、いきなりsha256に引数を与える方法は、ハッシュを計算する前に、一度に全てのデータを読み込む必要があるため、大きなデータセットに対しては適していない
         return hashlib.sha256(sorted_block.encode()).hexdigest()
-    
 
-
-    def add_transaction(self, sender_blockchain_address, recipient_blockchain_address, value, sender_public_key=None, signature=None):
+    def add_transaction(self, sender_blockchain_address,
+                        recipient_blockchain_address, value,
+                        sender_public_key=None, signature=None):
         transaction = utils.sorted_dict_by_key({
             'sender_blockchain_address': sender_blockchain_address,
             'recipient_blockchain_address': recipient_blockchain_address,
@@ -52,25 +57,32 @@ class BlockChain(object):
         if sender_blockchain_address == MINING_SENDER:
             self.transaction_pool.append(transaction)
             return True
-        
-        if self.verify_transaction_signature(sender_public_key, signature, transaction):
-            #if self.calculate_total_amount(sender_blockchain_address) < float(value):
-                #logger.error({'action': 'addd_transaction', 'error': 'no_value'})
-                #return False
-            
+
+        if self.verify_transaction_signature(
+                sender_public_key, signature, transaction):
+
+            # if self.calculate_total_amount(sender_blockchain_address) < float(value):
+            #     logger.error({'action': 'add_transaction', 'error': 'no_value'})
+            #     return False
+
             self.transaction_pool.append(transaction)
             return True
-        else:
-            return False 
-        
-    def create_transaction(self, sender_blockchain_address, recipient_blockchain_address, value, sender_public_key, signature):
-        is_transacted = self.add_transaction(sender_blockchain_address, recipient_blockchain_address, value, sender_public_key, signature)
-        
-        #TODO
+        return False
+
+    def create_transaction(self, sender_blockchain_address,
+                        recipient_blockchain_address, value,
+                        sender_public_key, signature):
+
+        is_transacted = self.add_transaction(
+            sender_blockchain_address, recipient_blockchain_address,
+            value, sender_public_key, signature)
+
+        # TODO
+        # Sync
 
         return is_transacted
 
-    
+
     def verify_transaction_signature(
             self, sender_public_key, signature, transaction):
         sha256 = hashlib.sha256()
@@ -81,8 +93,9 @@ class BlockChain(object):
             bytes().fromhex(sender_public_key), curve=NIST256p)
         verified_key = verifying_key.verify(signature_bytes, message)
         return verified_key
-    
-    def valid_proof(self, transactions, previous_hash, nonce, difficulty=MINING_DIFFICULTY):
+
+    def valid_proof(self, transactions, previous_hash, nonce,
+                    difficulty=MINING_DIFFICULTY):
         guess_block = utils.sorted_dict_by_key({
             'transactions': transactions,
             'nonce': nonce,
@@ -95,22 +108,33 @@ class BlockChain(object):
         transactions = self.transaction_pool.copy()
         previous_hash = self.hash(self.chain[-1])
         nonce = 0
-
         while self.valid_proof(transactions, previous_hash, nonce) is False:
             nonce += 1
-
         return nonce
 
     def mining(self):
+        if not self.transaction_pool:
+            return False
+        
         self.add_transaction(
-            sender_blockchain_address=MINING_SENDER, 
-            recipient_blockchain_address=self.blockchain_address, 
+            sender_blockchain_address=MINING_SENDER,
+            recipient_blockchain_address=self.blockchain_address,
             value=MINING_REWARD)
         nonce = self.proof_of_work()
-        previous_hash = self.hash(self.chain[-1])        
+        previous_hash = self.hash(self.chain[-1])
         self.create_block(nonce, previous_hash)
         logger.info({'action': 'mining', 'status': 'success'})
         return True
+    
+    def start_mining(self):
+        is_aquired = self.mining_semaphore.acquire(blocking=False)
+        if is_aquired:
+            with contextlib.ExitStack() as stack:
+                stack.callback(self.mining_semaphore.release)
+                self.mining()
+                loop = threading.Timer(MINING_TIMER_SEC, self.start_mining)
+                loop.start()
+                
 
     def calculate_total_amount(self, blockchain_address):
         total_amount = 0.0
@@ -122,9 +146,3 @@ class BlockChain(object):
                 if blockchain_address == transaction['sender_blockchain_address']:
                     total_amount -= value
         return total_amount
-
-
-
-
-
-    
