@@ -62,8 +62,16 @@ def is_found_host(target, port):
                 'ex': ex
             })
             return False
-        
+
+def get_host():
+    try:
+        return socket.gethostbyname(socket.gethostname())
+    except Exception as ex:
+        logger.error({'action': 'get_host', 'ex': ex})
+        return '127.0.0.1'
+
+
 if __name__ == '__main__':
-    print(is_found_host('127.0.0.1', 5000))
+   
     print(find_neighbors('192.168.0.10', 5000, 0, 3, 5000, 5003))
 

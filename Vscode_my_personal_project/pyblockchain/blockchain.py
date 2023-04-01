@@ -16,6 +16,11 @@ MINING_SENDER = 'THE BLOCKCHAIN'
 MINING_REWARD = 1.0
 MINING_TIMER_SEC = 20
 
+BLOCKCHAIN_PORT_RANGE = (5000, 5003)
+NEIGHBOURS_IP_RANGE_NUM = (0, 1)
+BLOCKCHAIN_NEIGHBOURS_SYNC_TIME_SEC = 20
+
+
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 logger = logging.getLogger(__name__)
 
@@ -29,6 +34,8 @@ class BlockChain(object):
         self.blockchain_address = blockchain_address
         self.port = port
         self.mining_semaphore = threading.Semaphore(1)
+        self.neighbours = []
+        self.sync_neighbour_semaphore =  threading.Semaphore(1)
 
     def create_block(self, nonce, previous_hash):
         block = utils.sorted_dict_by_key({
