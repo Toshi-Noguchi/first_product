@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST</title>
+    <link rel="stylesheet" href="styles.css"> <!-- スタイルシートをリンク -->
+    <!-- 最新の Bootstrap CSS を読み込む -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- 最新の JavaScript バンドルを読み込む --><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-xBkKNPBa+1aXNOz76sFPs7oJ+TqvTsk7hT1Z3/JJ7rHxpWlIUp+9iqPnByuBzFkb" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- ページの内容をここに記述 -->
+    <header>
+
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="text-center my-3">業界分析をしてみよう</h1>
+            <p class="text-center">以下の質問に答えて、【診断】ボタンを押してみよう</p>
+            <form method="post" action="/post">
+                <!--1個目の項目-->
+                <div class="container">
+                    <h3>1. 興味関心</h3>
+                    <p>自分が興味を持っている分野や業界は、自分がやりがいを感じ、モチベーションを保ちやすい場所です。自分が興味を持っていることや、自分自身が取り組む価値があると感じる分野にフォーカスして調べることが大切です。</p>
+                    <div class="container">
+                        <h6>・自分が興味を持っている分野は何ですか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="技術・IT">
+                            <label class="form-check-label" for="option-1-1">技術・IT</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="デザイン・クリエイティブ">
+                            <label class="form-check-label" for="option-1-1">デザイン・クリエイティブ</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="マーケティング・広告">
+                            <label class="form-check-label" for="option-1-1">マーケティング・広告</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="金融・投資">
+                            <label class="form-check-label" for="option-1-1">金融・投資</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="ヘルスケア・医療">
+                            <label class="form-check-label" for="option-1-1">ヘルスケア・医療</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="教育・人材開発">
+                            <label class="form-check-label" for="option-1-1">教育・人材開発</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="ファッション・美容">
+                            <label class="form-check-label" for="option-1-1">ファッション・美容</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="スポーツ・エンターテインメント">
+                            <label class="form-check-label" for="option-1-1">スポーツ・エンターテインメント</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="農業・食品・環境">
+                            <label class="form-check-label" for="option-1-1">農業・食品・環境</label>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h6>・どのような分野について知識を深めたいと思っていますか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="技術・IT">
+                            <label class="form-check-label" for="option-1-2">技術・IT</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="デザイン・クリエイティブ">
+                            <label class="form-check-label" for="option-1-2">デザイン・クリエイティブ</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="マーケティング・広告">
+                            <label class="form-check-label" for="option-1-2">マーケティング・広告</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="金融・投資">
+                            <label class="form-check-label" for="option-1-2">金融・投資</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="ヘルスケア・医療">
+                            <label class="form-check-label" for="option-1-2">ヘルスケア・医療</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="教育・人材開発">
+                            <label class="form-check-label" for="option-1-2">教育・人材開発</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="ファッション・美容">
+                            <label class="form-check-label" for="option-1-2">ファッション・美容</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="スポーツ・エンターテインメント">
+                            <label class="form-check-label" for="option-1-2">スポーツ・エンターテインメント</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="農業・食品・環境">
+                            <label class="form-check-label" for="option-1-2">農業・食品・環境</label>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h6>・自分自身が取り組む価値があると感じる分野は何ですか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="技術・IT">
+                            <label class="form-check-label" for="option-1-3">技術・IT</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="デザイン・クリエイティブ">
+                            <label class="form-check-label" for="option-1-3">デザイン・クリエイティブ</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="マーケティング・広告">
+                            <label class="form-check-label" for="option-1-3">マーケティング・広告</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="金融・投資">
+                            <label class="form-check-label" for="option-1-3">金融・投資</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="ヘルスケア・医療">
+                            <label class="form-check-label" for="option-1-3">ヘルスケア・医療</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="教育・人材開発">
+                            <label class="form-check-label" for="option-1-3">教育・人材開発</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="ファッション・美容">
+                            <label class="form-check-label" for="option-1-3">ファッション・美容</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="スポーツ・エンターテインメント">
+                            <label class="form-check-label" for="option-1-3">スポーツ・エンターテインメント</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="農業・食品・環境">
+                            <label class="form-check-label" for="option-1-3">農業・食品・環境</label>
+                        </div>
+                    </div>
+                </div>
+                <!--2個目の項目-->
+                <div class="container">
+                    <h3>2. 求めるキャリアパス </h3>
+                    <p>自分が将来的にどのようなキャリアを目指したいのかを明確にしておくことで、自分に合った業界や企業を選ぶことができます。具体的にどのようなポジションに就きたいのか、どのようなスキルを身につけたいのかを考えてみると良いでしょう。</p>
+                    <div class="container">
+                        <h6>・将来的にどのようなポジションに就きたいですか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-1" name="option-2-1" value="マネージャー・リーダー">
+                            <label class="form-check-label" for="option-2-1">マネージャー・リーダー</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-1" name="option-2-1" value="エンジニア・プログラマー">
+                            <label class="form-check-label" for="option-2-1">エンジニア・プログラマー</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-1" name="option-2-1" value="デザイナー・クリエイター">
+                            <label class="form-check-label" for="option-2-1">デザイナー・クリエイター</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-1" name="option-2-1" value="マーケティング・広告担当">
+                            <label class="form-check-label" for="option-2-1">マーケティング・広告担当</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-1" name="option-2-1" value="投資家・トレーダー">
+                            <label class="form-check-label" for="option-2-1">投資家・トレーダー</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-1" name="option-2-1" value="医師・看護師">
+                            <label class="form-check-label" for="option-2-1">医師・看護師</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-1" name="option-2-1" value="教育者・トレーナー">
+                            <label class="form-check-label" for="option-2-1">教育者・トレーナー</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-1" name="option-2-1" value="スポーツ選手・トレーナー">
+                            <label class="form-check-label" for="option-2-1">スポーツ選手・トレーナー</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-1" name="option-2-1" value="農家・食品製造業者">
+                            <label class="form-check-label" for="option-2-1">農家・食品製造業者</label>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h6>・自分が身につけたいスキルは何ですか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-2" name="option-2-2" value="コミュニケーションスキル">
+                            <label class="form-check-label" for="option-2-2">コミュニケーションスキル</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-2" name="option-2-2" value="リーダーシップスキル">
+                            <label class="form-check-label" for="option-2-2">リーダーシップスキル</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-2" name="option-2-2" value="プロジェクトマネジメントスキル">
+                            <label class="form-check-label" for="option-2-2">プロジェクトマネジメントスキル</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-2" name="option-2-2" value="プログラミング・開発">
+                            <label class="form-check-label" for="option-2-2">プログラミング・開発</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-2" name="option-2-2" value="デザイン・クリエイティブ">
+                            <label class="form-check-label" for="option-2-2">デザイン・クリエイティブ</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-2" name="option-2-2" value="マーケティング・広告">
+                            <label class="form-check-label" for="option-2-2">マーケティング・広告</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-2" name="option-2-2" value="データ分析・統計処理">
+                            <label class="form-check-label" for="option-2-2">データ分析・統計処理</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-2" name="option-2-2" value="金融・投資">
+                            <label class="form-check-label" for="option-2-2">金融・投資</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-2" name="option-2-2" value="医療知識・技術">
+                            <label class="form-check-label" for="option-2-2">医療知識・技術</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-2-2" name="option-2-2" value="教育・トレーニング">
+                            <label class="form-check-label" for="option-2-2">教育・トレーニング</label>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h6>・どのようなキャリアプランを持っていますか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）">
+                            <label class="form-check-label" for="option-1">エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）">
+                            <label class="form-check-label" for="option-1">ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）">
+                            <label class="form-check-label" for="option-1">テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）">
+                            <label class="form-check-label" for="option-1">ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="社会・教育・福祉（社会問題、教育問題、福祉問題など）">
+                            <label class="form-check-label" for="option-1">社会・教育・福祉（社会問題、教育問題、福祉問題など）</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!--3個目の項目-->
+                <div class="container">
+                    <h3>3. 労働環境</h3>
+                    <p>自分が働きやすい環境は何かを考えることも重要です。例えば、自分が好きな職場の雰囲気や、自分に合った働き方ができるかどうか、また通勤時間や残業の有無などについても確認することが必要です。</p>
+                    <div class="container">
+                        <h6>・自分が好きな職場の雰囲気はどのようなものですか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）">
+                            <label class="form-check-label" for="option-1">エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）">
+                            <label class="form-check-label" for="option-1">ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）">
+                            <label class="form-check-label" for="option-1">テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）">
+                            <label class="form-check-label" for="option-1">ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="社会・教育・福祉（社会問題、教育問題、福祉問題など）">
+                            <label class="form-check-label" for="option-1">社会・教育・福祉（社会問題、教育問題、福祉問題など）</label>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h6>・自分に合った働き方とは何ですか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）">
+                            <label class="form-check-label" for="option-1">エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）">
+                            <label class="form-check-label" for="option-1">ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）">
+                            <label class="form-check-label" for="option-1">テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）">
+                            <label class="form-check-label" for="option-1">ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="社会・教育・福祉（社会問題、教育問題、福祉問題など）">
+                            <label class="form-check-label" for="option-1">社会・教育・福祉（社会問題、教育問題、福祉問題など）</label>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h6>・通勤時間や残業の有無について、どのような条件が望ましいですか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）">
+                            <label class="form-check-label" for="option-1">エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）">
+                            <label class="form-check-label" for="option-1">ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）">
+                            <label class="form-check-label" for="option-1">テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）">
+                            <label class="form-check-label" for="option-1">ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="社会・教育・福祉（社会問題、教育問題、福祉問題など）">
+                            <label class="form-check-label" for="option-1">社会・教育・福祉（社会問題、教育問題、福祉問題など）</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!--4個目の項目-->
+                <div class="container">
+                    <h3>4. 成長性や将来性</h3>
+                    <p>業界や企業の成長性や将来性についても調べておくことが重要です。将来的に伸びる可能性がある分野にフォーカスすることで、長期的なキャリアの視点で選択することができます。</p>
+                    <div class="container">
+                        <h6>・長期的なキャリアの視点で、将来的に伸びる可能性があると思う分野は何ですか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）">
+                            <label class="form-check-label" for="option-1">エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）">
+                            <label class="form-check-label" for="option-1">ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）">
+                            <label class="form-check-label" for="option-1">テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）">
+                            <label class="form-check-label" for="option-1">ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="社会・教育・福祉（社会問題、教育問題、福祉問題など）">
+                            <label class="form-check-label" for="option-1">社会・教育・福祉（社会問題、教育問題、福祉問題など）</label>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h6>・どのような業界や企業が将来的に注目されると思いますか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）">
+                            <label class="form-check-label" for="option-1">エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）">
+                            <label class="form-check-label" for="option-1">ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）">
+                            <label class="form-check-label" for="option-1">テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）">
+                            <label class="form-check-label" for="option-1">ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="社会・教育・福祉（社会問題、教育問題、福祉問題など）">
+                            <label class="form-check-label" for="option-1">社会・教育・福祉（社会問題、教育問題、福祉問題など）</label>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h6>・自分のキャリアにおいて、成長できる分野は何だと思いますか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）">
+                            <label class="form-check-label" for="option-1">エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）">
+                            <label class="form-check-label" for="option-1">ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）">
+                            <label class="form-check-label" for="option-1">テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）">
+                            <label class="form-check-label" for="option-1">ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="社会・教育・福祉（社会問題、教育問題、福祉問題など）">
+                            <label class="form-check-label" for="option-1">社会・教育・福祉（社会問題、教育問題、福祉問題など）</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!--5個目の項目-->
+                <div class="container">
+                    <h3>5. 人材育成や福利厚生</h3>
+                    <p>自分自身の成長に合わせて、企業がどのように人材育成を行っているか、また福利厚生や社員の働きやすさについても調べておくことが大切です。これらは、自分が働き続けるために必要なポイントであり、自分に合った企業選びの重要な要素です。</p>
+                    <div class="container">
+                        <h6>・自分自身の成長に合わせて、企業がどのように人材育成を行っているか気になりますか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）">
+                            <label class="form-check-label" for="option-1">エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）">
+                            <label class="form-check-label" for="option-1">ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）">
+                            <label class="form-check-label" for="option-1">テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）">
+                            <label class="form-check-label" for="option-1">ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-1" name="option-1-1" value="社会・教育・福祉（社会問題、教育問題、福祉問題など）">
+                            <label class="form-check-label" for="option-1">社会・教育・福祉（社会問題、教育問題、福祉問題など）</label>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h6>・福利厚生や社員の働きやすさについて、どのような条件が望ましいですか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）">
+                            <label class="form-check-label" for="option-1">エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）">
+                            <label class="form-check-label" for="option-1">ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）">
+                            <label class="form-check-label" for="option-1">テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）">
+                            <label class="form-check-label" for="option-1">ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-2" name="option-1-2" value="社会・教育・福祉（社会問題、教育問題、福祉問題など）">
+                            <label class="form-check-label" for="option-1">社会・教育・福祉（社会問題、教育問題、福祉問題など）</label>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h6>・どのような研修やキャリア支援制度があれば、自分の成長につながると思いますか？</h6>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）">
+                            <label class="form-check-label" for="option-1">エンターテイメント・メディア（映画、音楽、テレビ番組、出版物など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）">
+                            <label class="form-check-label" for="option-1">ファッション・美容・ライフスタイル（洋服、化粧品、インテリア、健康など）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）">
+                            <label class="form-check-label" for="option-1">テクノロジー・ゲーム（スマートフォン、パソコン、ゲームソフトなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）">
+                            <label class="form-check-label" for="option-1">ビジネス・経済（投資、マーケティング、起業、ビジネスモデルなど）</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="option-1-3" name="option-1-3" value="社会・教育・福祉（社会問題、教育問題、福祉問題など）">
+                            <label class="form-check-label" for="option-1">社会・教育・福祉（社会問題、教育問題、福祉問題など）</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">分析する</button>
+              </form>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+    
+    
+    <script src="script.js"></script> <!-- JavaScriptファイルをリンク -->
+</body>
+
+</html>
+
